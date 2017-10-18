@@ -1,0 +1,5 @@
+4, Ivan, Petrov, PHP net, 20000.04, Ivan, Petrov, PHP net, 20000.04, Ivan, Petrov, PHP Developer, 20000.04, Ivan, Petrov, PHP Developer, 20000.07, Olga, Petrova, Rfby Developer, 25000.07, Olga, Petrova, Rfby Developer, 25000.0
+7, Olga, Petrova, Rfby Developer, 25000.0
+6, Vladimir, Fominykh, Java Developer, 100000.0
+6, Vladimir, Fominykh, Java Developer, 100000.0
+6, Vladimir, Fominykh, Java Developer, 100000.0

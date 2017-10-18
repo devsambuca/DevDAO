@@ -1,5 +1,7 @@
 package net.devsambuca;
 
+import com.sun.org.apache.bcel.internal.generic.DDIV;
+
 import java.io.*;
 import java.util.*;
 
@@ -8,6 +10,16 @@ import java.util.*;
  */
 public class DeveloperDAO {
     List<Developer> devList = new ArrayList<Developer>();
+
+    public Developer create(long l, String aeao, String uoeuo, String oeuoeu, double v){
+        Developer developer = new Developer();
+        developer.getId();
+        developer.getFirstName();
+        developer.getLastName();
+        developer.getPosition();
+        developer.getSalary();
+        return developer;
+    }
 
     public void save(Developer developer) {
         try {
@@ -20,8 +32,6 @@ public class DeveloperDAO {
                 String nextLine = devScanner.nextLine();
                 String[] devData = nextLine.split(",");
 
-                developer = new Developer();
-
                 developer.setId((Long.parseLong(devData[0])));
                 developer.setFirstName(devData[1]);
                 developer.setLastName(devData[2]);
@@ -31,7 +41,7 @@ public class DeveloperDAO {
 //                System.out.println(developer);
             }
 
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
     }
@@ -46,7 +56,7 @@ public class DeveloperDAO {
         return null;
     }
 
-    public void remove(Long id) {
+    public void deleteById(Long id) {
         Iterator<Developer> iDev = devList.iterator();
         while (iDev.hasNext()) {
             Developer s = iDev.next();
@@ -54,38 +64,37 @@ public class DeveloperDAO {
                 iDev.remove();
             }
         }
-        for (Developer dev : devList)
-            System.out.println(dev);
     }
 
-    public List<Developer>getAll(){
+    public void delete(Developer developer){
+
+    }
+
+
+
+
+    public List<Developer> getAll() {
         System.out.println(devList);
         return devList;
     }
 
     public void update(Developer developer) {
-        developer = new Developer();
-
+        System.out.println(developer.toString());
         Writer writer = null;
+        String str = developer.toString();
         try {
-            writer = new FileWriter("file.txt");
-            for (Developer line : devList) {
-                writer.write(String.valueOf(line));
-                writer.write(System.getProperty("line.separator"));
-            }
+            writer = new FileWriter("file.txt",true);
+            writer.write(str +'\n');
+
             writer.flush();
-        } catch (Exception e) {
-
-        } finally {
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException ex) {
-                }
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-
     }
+
+
+
+
 }
+
 
