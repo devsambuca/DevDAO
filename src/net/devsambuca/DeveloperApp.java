@@ -9,6 +9,8 @@ public class DeveloperApp {
 
         DeveloperDAO d1 = new DeveloperDAO();
 
+        d1.getAll();
+
         d1.getById(1l);
 
 
