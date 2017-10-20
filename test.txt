@@ -1,6 +1,0 @@
-1,Ivan,Petrov,PHP Developer,20000
-2,Tatyana,Zimina,C++ Developer,40000
-3,Vladimir,Fominykh,Java Developer,100000
-4,Ivan,Petrov,PHP Developer,20000
-5,Tatyana,Zimina,C++ Developer,40000
-6,Vladimir,Fominykh,Java Developer,100000
