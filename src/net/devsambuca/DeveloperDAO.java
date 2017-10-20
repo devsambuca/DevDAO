@@ -1,7 +1,5 @@
 package net.devsambuca;
 
-import com.sun.org.apache.bcel.internal.generic.DDIV;
-
 import java.io.*;
 import java.util.*;
 
@@ -9,7 +7,7 @@ import java.util.*;
  * @author Fominykh Vladimir
  */
 public class DeveloperDAO {
-    List<Developer> devList = new ArrayList<Developer>();
+    //List<Developer> devList = new ArrayList<Developer>();
 
     public Developer create(long l, String aeao, String uoeuo, String oeuoeu, double v){
         Developer developer = new Developer();
@@ -21,7 +19,8 @@ public class DeveloperDAO {
         return developer;
     }
 
-    public void save(Developer developer) {
+
+    public Developer getById(Long id) {
         try {
             // find the file with the developer date
             File devFile = new File("test.txt");
@@ -29,42 +28,25 @@ public class DeveloperDAO {
             Scanner devScanner = new Scanner(devFile);
 
             while (devScanner.hasNext()) {
+                Developer developer = new Developer();
                 String nextLine = devScanner.nextLine();
                 String[] devData = nextLine.split(",");
-
                 developer.setId((Long.parseLong(devData[0])));
                 developer.setFirstName(devData[1]);
                 developer.setLastName(devData[2]);
                 developer.setPosition(devData[3]);
                 developer.setSalary(Double.parseDouble(devData[4]));
-                devList.add(developer);
-//                System.out.println(developer);
+                System.out.println(developer.toString());
+                if (id != null && id == developer.getId()){
+                    System.out.println(developer.toString());
+                }
             }
-
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-        }
-    }
-
-    public Developer getById(Long id) {
-        for (Developer dev : devList) {
-            if (dev.getId() == id) {
-                System.out.println(dev);
-                return dev;
-            }
         }
         return null;
     }
 
-    public void deleteById(Long id) {
-        Iterator<Developer> iDev = devList.iterator();
-        while (iDev.hasNext()) {
-            Developer s = iDev.next();
-            if (s.getId() == id) {
-                iDev.remove();
-            }
-        }
-    }
 
     public void delete(Developer developer){
 
@@ -73,10 +55,10 @@ public class DeveloperDAO {
 
 
 
-    public List<Developer> getAll() {
-        System.out.println(devList);
-        return devList;
-    }
+//    public Developer getAll() {
+//        System.out.println();
+//
+//    }
 
     public void update(Developer developer) {
         System.out.println(developer.toString());
