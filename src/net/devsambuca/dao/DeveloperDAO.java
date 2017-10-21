@@ -9,6 +9,7 @@ import java.util.*;
  * @author Fominykh Vladimir
  */
 public class DeveloperDAO {
+    public static final String FILE_PATH = "test.txt";
 
     public void save(Developer developer){
         developer.getId();
@@ -23,7 +24,7 @@ public class DeveloperDAO {
         List<Developer> devList = new ArrayList<Developer>();
         try {
             // find the file with the developer date
-            File devFile = new File("test.txt");
+            File devFile = new File(FILE_PATH);
 
             Scanner devScanner = new Scanner(devFile);
 
@@ -38,7 +39,6 @@ public class DeveloperDAO {
                 developer.setPosition(devData[3]);
                 developer.setSalary(Double.parseDouble(devData[4]));
                 devList.add(developer);
-
             }
             System.out.println(devList);
             return devList;
@@ -53,7 +53,7 @@ public class DeveloperDAO {
             BufferedReader reader = null;
             PrintWriter writer = null;
             try {
-                File file = new File("test.txt");
+                File file = new File(FILE_PATH);
                 String fileToWrite = "file.txt";
                 reader = new BufferedReader(new FileReader(file));
                 writer = new PrintWriter(new FileWriter(fileToWrite));
@@ -109,7 +109,6 @@ public class DeveloperDAO {
         }
         return null;
     }
-
 
     public void update(Developer developer) {
 
