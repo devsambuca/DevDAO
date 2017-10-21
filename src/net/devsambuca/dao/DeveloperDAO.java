@@ -1,6 +1,6 @@
-package net.devsambuca;
+package net.devsambuca.dao;
 
-import com.sun.deploy.util.ArrayUtil;
+import net.devsambuca.model.Developer;
 
 import java.io.*;
 import java.util.*;
@@ -9,53 +9,18 @@ import java.util.*;
  * @author Fominykh Vladimir
  */
 public class DeveloperDAO {
-    Developer [] devArr;
 
-    public Developer[] countDev() {
-
-        int lineCount = 0;
-        try {
-            // find the file with the developer date
-            File devFile = new File("test.txt");
-
-            Scanner devScanner = new Scanner(devFile);
-
-            while (devScanner.hasNext()) {
-                Developer developer = new Developer();
-                String nextLine = devScanner.nextLine();
-                String[] devData = nextLine.split(",");
-                lineCount++;
-                developer.setId((Long.parseLong(devData[0])));
-                developer.setFirstName(devData[1]);
-                developer.setLastName(devData[2]);
-                developer.setPosition(devData[3]);
-                developer.setSalary(Double.parseDouble(devData[4]));
-
-                Developer [] devArr = new Developer[lineCount];
-                for(int i = 0; i < devArr.length; i++)
-                    devArr[i] = developer;
-                    System.out.println(developer);
-            }
-
-            return devArr;
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return new Developer[0];
-    }
-
-    public Developer save(Developer developer){
+    public void save(Developer developer){
         developer.getId();
         developer.getFirstName();
         developer.getLastName();
         developer.getPosition();
         developer.getSalary();
 
-        return developer;
     }
 
-    public Developer getAll() {
+    public List<Developer> getAll() {
+        List<Developer> devList = new ArrayList<Developer>();
         try {
             // find the file with the developer date
             File devFile = new File("test.txt");
@@ -72,18 +37,18 @@ public class DeveloperDAO {
                 developer.setLastName(devData[2]);
                 developer.setPosition(devData[3]);
                 developer.setSalary(Double.parseDouble(devData[4]));
-                System.out.println(developer.toString());
+                devList.add(developer);
 
             }
-
+            System.out.println(devList);
+            return devList;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-
-    public static void deletebyId(long id){
+    public  void deletebyId(long id){
 
             BufferedReader reader = null;
             PrintWriter writer = null;
@@ -116,7 +81,6 @@ public class DeveloperDAO {
                 }
             }
         }
-
 
     public Developer getById(Long id) {
         try {

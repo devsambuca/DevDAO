@@ -1,5 +1,8 @@
 package net.devsambuca;
 
+import net.devsambuca.dao.DeveloperDAO;
+import net.devsambuca.model.Developer;
+
 /**
  * @author Fominykh Vladimir
  */

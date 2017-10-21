@@ -1,4 +1,4 @@
-package net.devsambuca;
+package net.devsambuca.model;
 
 /**
  * @author Fominykh Vladimir
