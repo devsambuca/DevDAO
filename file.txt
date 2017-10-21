@@ -1,10 +1,6 @@
-0, null, null, null, 0.0
-0, null, null, null, 0.0
-0, null, null, null, 0.0
-0, null, null, null, 0.0
-7, Nikolay, Petunin, Java Developer, 40000.0
-7, Nikolay, Petunin, Java Developer, 40000.0
-7, Nikolay, Petunin, Java Developer, 40000.0
-7, Nikolay, Petunin, Java Developer, 40000.0
-7, Nikolay, Petunin, Java Developer, 40000.0
+2, Tatyana, Zimina, C++ Developer, 40000.0
+3, Vladimir, Fominykh, Java Developer, 100000.0
+4, Ivan, Petrov, PHP Developer, 20000.0
+5, Tatyana, Zimina, C++ Developer, 40000.0
+6, Vladimir, Fominykh, Java Developer, 100000.0
 7, Nikolay, Petunin, Java Developer, 40000.0

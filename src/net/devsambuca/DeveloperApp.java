@@ -9,15 +9,19 @@ public class DeveloperApp {
 
         DeveloperDAO d1 = new DeveloperDAO();
        Developer developer = new Developer(7L, "Nikolay", "Petunin", "Java Developer", 40000.00);
-       d1.countDev();
+//       d1.countDev();
+//        System.out.println();
 
         d1.save(developer);
 
         d1.getAll();
+        System.out.println();
 
         d1.getById(1l);
 
         d1.update(developer);
+        d1.deletebyId(1l);
+
 
 
     }
