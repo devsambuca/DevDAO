@@ -21,7 +21,7 @@ public class Developer {
 
     @Override
     public String toString() {
-        return id + ", " + firstName + ", " + lastName + ", " + position + ", " + salary;
+        return id + "," + firstName + "," + lastName + "," + position + "," + salary;
     }
 
     public Developer() {
