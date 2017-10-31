@@ -1,10 +1,7 @@
 package net.devsambuca;
 
+import net.devsambuca.Viewer.DeveloperView;
 import net.devsambuca.controller.DeveloperController;
-import net.devsambuca.dao.DeveloperDAO;
-import net.devsambuca.model.Developer;
-
-import java.io.BufferedReader;
 
 /**
  * @author Fominykh Vladimir
@@ -14,6 +11,8 @@ public class DeveloperApp {
     public static void main(String[] args) {
 
         DeveloperController developerController = new DeveloperController();
+        DeveloperView developerView = new DeveloperView();
+        developerView.inputData();
 
 
 //        DeveloperDAO d1 = new DeveloperDAO();
