@@ -1,8 +1,7 @@
 package net.devsambuca;
 
 import net.devsambuca.Viewer.DeveloperView;
-import net.devsambuca.controller.DeveloperController;
-import net.devsambuca.dao.DeveloperDAO;
+
 
 /**
  * @author Fominykh Vladimir
@@ -11,7 +10,7 @@ public class DeveloperApp {
 
     public static void main(String[] args) {
 
-        DeveloperController developerController = new DeveloperController();
+//        DeveloperController developerController = new DeveloperController();
         DeveloperView developerView = new DeveloperView();
         developerView.run();
 

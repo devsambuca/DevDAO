@@ -40,7 +40,7 @@ public class DeveloperView {
             return choice;
     }
 
-    public void performAction(int choice) {
+    private void performAction(int choice) {
         switch (choice) {
             case 0:
                 exit = true;
@@ -57,7 +57,11 @@ public class DeveloperView {
                 break;
 
             case 4:
+                updateDeveloper();
+                break;
+
             case 5:
+
                 default:
                     System.out.println("An unknown error has occured.");
 
@@ -78,7 +82,7 @@ public class DeveloperView {
         }
     }
 
-    public void createDeveloper(){
+    private void createDeveloper(){
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Input ID: ");
@@ -94,6 +98,30 @@ public class DeveloperView {
             developer.setSalary(Double.parseDouble(reader.readLine()));
             developerController.save(developer);
             System.out.println(developer);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void updateDeveloper(){
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Input ID: ");
+            Developer developer = new Developer();
+            developer.setId(Long.parseLong(reader.readLine()));
+            System.out.println("Input firstname: ");
+            developer.setFirstName(reader.readLine());
+            System.out.println("Input lastname: ");
+            developer.setLastName(reader.readLine());
+            System.out.println("Input position: ");
+            developer.setPosition(reader.readLine());
+            System.out.println("Input salary: ");
+            developer.setSalary(Double.parseDouble(reader.readLine()));
+            developerController.update(developer);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
