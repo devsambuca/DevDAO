@@ -11,15 +11,14 @@ import java.util.List;
  */
 public class DeveloperController {
 
-    private DeveloperDAO developerDAO;
+    private DeveloperDAO developerDAO = new DeveloperDAO();
 
     public void save(Developer developer) {
         this.developerDAO.save(developer);
     }
 
     public Developer getById(long id) {
-        this.developerDAO.getById(id);
-        return null;
+       return this.developerDAO.getById(id);
     }
 
     public void update(Developer developer) {
@@ -27,8 +26,7 @@ public class DeveloperController {
     }
 
     public List<Developer> getAll() {
-        this.developerDAO.getAll();
-        return (List<Developer>) this;
+       return this.developerDAO.getAll();
     }
 
     public void deleteById(long id) {

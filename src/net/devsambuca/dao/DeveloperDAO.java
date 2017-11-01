@@ -51,8 +51,14 @@ public class DeveloperDAO implements IDeveloperDAO {
                 developer.setPosition(devData[3]);
                 developer.setSalary(Double.parseDouble(devData[4]));
                 devList.add(developer);
+
             }
+            for (Developer dev : devList)
+                System.out.println(dev);
             return devList;
+
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -89,8 +95,8 @@ public class DeveloperDAO implements IDeveloperDAO {
                 developer.setSalary(Double.parseDouble(devData[4]));
 
                 if (id == developer.getId()) {
+                    return developer;
                 }
-                return developer;
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
