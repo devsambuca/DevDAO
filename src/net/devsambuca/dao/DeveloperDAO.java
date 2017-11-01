@@ -12,7 +12,6 @@ import java.util.*;
 public class DeveloperDAO implements IDeveloperDAO {
     public static final String FILE_PATH = "test.txt";
 
-
     public void save(Developer developer) {
         developer.getId();
         developer.getFirstName();
@@ -51,14 +50,8 @@ public class DeveloperDAO implements IDeveloperDAO {
                 developer.setPosition(devData[3]);
                 developer.setSalary(Double.parseDouble(devData[4]));
                 devList.add(developer);
-
             }
-            for (Developer dev : devList)
-                System.out.println(dev);
             return devList;
-
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -66,6 +59,8 @@ public class DeveloperDAO implements IDeveloperDAO {
     }
 
     public void deleteById(long id) {
+
+
         List<Developer> dev = getAll();
         Iterator<Developer> iDev = dev.iterator();
         while (iDev.hasNext()) {
@@ -73,8 +68,17 @@ public class DeveloperDAO implements IDeveloperDAO {
             if (s.getId() == id)
                 iDev.remove();
         }
-        for (Developer d : dev)
-            System.out.println(d);
+        Writer writer = null;
+        try {
+            writer = new FileWriter(FILE_PATH);
+            for (Developer d : dev) {
+                writer.write(String.valueOf(d));
+                writer.write(System.getProperty("line.separator"));
+            }
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Developer getById(long id) {
@@ -113,9 +117,6 @@ public class DeveloperDAO implements IDeveloperDAO {
                 iDev.remove();
         }
         dev.add(developer);
-        for (Developer d : dev)
-            System.out.println(d);
-
         Writer writer = null;
         try {
             writer = new FileWriter(FILE_PATH);

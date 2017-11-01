@@ -6,6 +6,7 @@ import net.devsambuca.model.Developer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class DeveloperView {
     DeveloperController developerController = new DeveloperController();
 
 
-    public void run(){
+    public void run() {
         printHeader();
         while (!exit) {
             showMenu();
@@ -28,16 +29,18 @@ public class DeveloperView {
 
     private int getInput() {
         int choice = -1;
-        Scanner reader = new Scanner(System.in);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (choice < 0 || choice > 5) {
             try {
                 System.out.println("\nEnter your choice: ");
-                choice = Integer.parseInt(reader.nextLine());
+                choice = Integer.parseInt(reader.readLine());
             } catch (NumberFormatException e) {
                 System.out.print("Invalid selection. Please try again.");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-            return choice;
+        return choice;
     }
 
     private void performAction(int choice) {
@@ -47,7 +50,7 @@ public class DeveloperView {
                 System.out.println("Thanks for using our application");
                 break;
             case 1:
-                developerController.getAll();
+                showAllDeveloper();
                 break;
             case 2:
                 inputID();
@@ -55,25 +58,28 @@ public class DeveloperView {
             case 3:
                 createDeveloper();
                 break;
-
             case 4:
                 updateDeveloper();
                 break;
-
             case 5:
-
-                default:
-                    System.out.println("An unknown error has occured.");
-
-
-
+                deleteDeveloper();
+                break;
+            default:
+                System.out.println("An unknown error has occured.");
         }
     }
 
+    private void showAllDeveloper(){
+        List<Developer> dev = developerController.getAll();
+        for (Developer d1 : dev)
+            System.out.println(d1);
+    }
 
-    private void inputID(){
+    private void inputID() {
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
             System.out.println("Input ID developer: ");
             System.out.println(developerController.getById(Long.parseLong(reader.readLine())));
 
@@ -82,7 +88,7 @@ public class DeveloperView {
         }
     }
 
-    private void createDeveloper(){
+    private void createDeveloper() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Input ID: ");
@@ -102,10 +108,9 @@ public class DeveloperView {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    private void updateDeveloper(){
+    private void updateDeveloper() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Input ID: ");
@@ -121,25 +126,31 @@ public class DeveloperView {
             developer.setSalary(Double.parseDouble(reader.readLine()));
             developerController.update(developer);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteDeveloper(){
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Input ID developer: ");
+            developerController.deleteById(Long.parseLong(reader.readLine()));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-
-    private void printHeader(){
+    private void printHeader() {
         System.out.println("-----------------------------------------------");
         System.out.println("|                                             |");
         System.out.println("|        WELCOME DATA BASE DEVELOPERS         |");
         System.out.println("|                                             |");
         System.out.println("-----------------------------------------------");
-
-
     }
 
-    private void showMenu(){
+    private void showMenu() {
         System.out.println("\nPlease make a selection");
         System.out.println("1. Show all developers");
         System.out.println("2. Find developer by ID");
@@ -148,7 +159,4 @@ public class DeveloperView {
         System.out.println("5. Delete developer");
         System.out.println("0. Exit");
     }
-
-
-    
 }
