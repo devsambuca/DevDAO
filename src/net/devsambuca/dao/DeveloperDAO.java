@@ -1,8 +1,6 @@
 package net.devsambuca.dao;
-
 import net.devsambuca.*;
 import net.devsambuca.model.Developer;
-
 import java.io.*;
 import java.util.*;
 
@@ -11,20 +9,12 @@ import java.util.*;
  */
 public class DeveloperDAO implements IDeveloperDAO {
     public static final String FILE_PATH = "test.txt";
-
     public void save(Developer developer) {
-        developer.getId();
-        developer.getFirstName();
-        developer.getLastName();
-        developer.getPosition();
-        developer.getSalary();
-
         Writer writer = null;
-        String str = developer.toString();
+        String str = developer.getId() + "," + developer.getFirstName() + "," + developer.getLastName() + "," + developer.getPosition() + "," + developer.getSalary();
         try {
             writer = new FileWriter(FILE_PATH, true);
             writer.write(str + '\n');
-
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,14 +26,11 @@ public class DeveloperDAO implements IDeveloperDAO {
         try {
             // find the file with the developer date
             File devFile = new File(FILE_PATH);
-
             Scanner devScanner = new Scanner(devFile);
-
             while (devScanner.hasNext()) {
                 Developer developer = new Developer();
                 String nextLine = devScanner.nextLine();
                 String[] devData = nextLine.split(",");
-
                 developer.setId((Long.parseLong(devData[0])));
                 developer.setFirstName(devData[1]);
                 developer.setLastName(devData[2]);
@@ -59,8 +46,6 @@ public class DeveloperDAO implements IDeveloperDAO {
     }
 
     public void deleteById(long id) {
-
-
         List<Developer> dev = getAll();
         Iterator<Developer> iDev = dev.iterator();
         while (iDev.hasNext()) {
@@ -85,9 +70,7 @@ public class DeveloperDAO implements IDeveloperDAO {
         try {
             // find the file with the developer date
             File devFile = new File(FILE_PATH);
-
             Scanner devScanner = new Scanner(devFile);
-
             while (devScanner.hasNext()) {
                 Developer developer = new Developer();
                 String nextLine = devScanner.nextLine();
@@ -97,7 +80,6 @@ public class DeveloperDAO implements IDeveloperDAO {
                 developer.setLastName(devData[2]);
                 developer.setPosition(devData[3]);
                 developer.setSalary(Double.parseDouble(devData[4]));
-
                 if (id == developer.getId()) {
                     return developer;
                 }
@@ -125,7 +107,6 @@ public class DeveloperDAO implements IDeveloperDAO {
                 writer.write(System.getProperty("line.separator"));
             }
             writer.flush();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

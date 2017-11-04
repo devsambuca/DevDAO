@@ -1,8 +1,6 @@
 package net.devsambuca;
 
 import net.devsambuca.Viewer.DeveloperView;
-import net.devsambuca.dao.DeveloperDAO;
-
 
 /**
  * @author Fominykh Vladimir

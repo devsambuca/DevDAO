@@ -2,12 +2,11 @@ package net.devsambuca.Viewer;
 
 import net.devsambuca.controller.DeveloperController;
 import net.devsambuca.model.Developer;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Scanner;
+
 
 /**
  * @author Fominykh Vladimir
@@ -76,15 +75,19 @@ public class DeveloperView {
     }
 
     private void inputID() {
+        while (true) {
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                System.out.println("\nInput ID developer: ");
+                System.out.println(developerController.getById(Long.parseLong(reader.readLine())));
 
-            System.out.println("Input ID developer: ");
-            System.out.println(developerController.getById(Long.parseLong(reader.readLine())));
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid selection. Please try again.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
         }
     }
 

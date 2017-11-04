@@ -52,7 +52,7 @@ public class Developer {
     }
 
     public String getPosition() {
-        return lastName;
+        return position;
     }
 
     public void setPosition(String position) {
