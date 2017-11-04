@@ -1,9 +1,7 @@
-package net.devsambuca.controller;
+package net.devsambuca.developer.controller;
 
-
-import net.devsambuca.dao.DeveloperDAO;
-import net.devsambuca.model.Developer;
-
+import net.devsambuca.developer.dao.DeveloperDAO;
+import net.devsambuca.developer.model.Developer;
 import java.util.List;
 
 /**

@@ -1,6 +1,6 @@
-package net.devsambuca;
+package net.devsambuca.developer;
 
-import net.devsambuca.model.Developer;
+import net.devsambuca.developer.model.Developer;
 
 import java.util.List;
 

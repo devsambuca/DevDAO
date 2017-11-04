@@ -1,6 +1,6 @@
-package net.devsambuca;
+package net.devsambuca.developer;
 
-import net.devsambuca.Viewer.DeveloperView;
+import net.devsambuca.developer.viewer.DeveloperView;
 
 /**
  * @author Fominykh Vladimir

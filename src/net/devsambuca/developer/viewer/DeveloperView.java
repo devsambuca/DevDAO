@@ -1,7 +1,7 @@
-package net.devsambuca.Viewer;
+package net.devsambuca.developer.viewer;
 
-import net.devsambuca.controller.DeveloperController;
-import net.devsambuca.model.Developer;
+import net.devsambuca.developer.controller.DeveloperController;
+import net.devsambuca.developer.model.Developer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -1,6 +1,6 @@
-package net.devsambuca.dao;
-import net.devsambuca.*;
-import net.devsambuca.model.Developer;
+package net.devsambuca.developer.dao;
+import net.devsambuca.developer.IDeveloperDAO;
+import net.devsambuca.developer.model.Developer;
 import java.io.*;
 import java.util.*;
 
@@ -8,7 +8,7 @@ import java.util.*;
  * @author Fominykh Vladimir
  */
 public class DeveloperDAO implements IDeveloperDAO {
-    public static final String FILE_PATH = "test.txt";
+    public static final String FILE_PATH = "developers.txt";
     public void save(Developer developer) {
         Writer writer = null;
         String str = developer.getId() + "," + developer.getFirstName() + "," + developer.getLastName() + "," + developer.getPosition() + "," + developer.getSalary();
